@@ -189,16 +189,14 @@
                 <!-- Foto 1 (Arriba Izquierda) -->
                 <div class="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-glassBorder bg-zinc-900 shadow-md">
                     <!-- COMENTARIO REEMPLAZO: Reemplazá 'cabina_1.jpg' por tu propia imagen de cabina de DJ -->
-                    <img id="mi-imagen" src="03.jpg" alt="Miyen mezclando en vivo" class="imagen-normal w-full h-full object-contain transition duration-500" tabindex="0" role="button" aria-label="Ampliar imagen" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800'">
-                    <div class="absolute bottom-4 left-4">
-                    </div>
+                    <img id="mi-imagen" src="03.jpg" alt="Miyen mezclando en vivo" class="imagen-normal w-full h-full object-contain transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800'">
+                    <button id="boton-bio-english" type="button" class="absolute bottom-4 right-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white bg-transparent border border-white/70 rounded-md backdrop-blur-sm transition hover:bg-white/10">BIO ENGLISH</button>
 
                         <!-- 2. CSS: Transición entre estados -->
                         <style>
                         /* Estado normal de la imagen */
                             .imagen-normal {
                             transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
-                            cursor: pointer;
                         }
 
                         /* Estado ampliado (Se activa al agregar la clase con JS) */
@@ -212,6 +210,7 @@
                             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
                                 z-index: 60;
                                 background: rgba(5, 5, 8, 0.96);
+                                cursor: pointer;
                         }
                         </style>
 
@@ -219,6 +218,7 @@
                         <script>
                         const imagen = document.getElementById('mi-imagen');
                         const imagenOriginal = imagen.src;
+                        const botonBioEnglish = document.getElementById('boton-bio-english');
 
                             const alternarZoom = () => {
                             imagen.classList.toggle('zoom');
@@ -231,13 +231,14 @@
                                 }
                             };
 
-                            imagen.addEventListener('click', alternarZoom);
-                            imagen.addEventListener('keydown', (evento) => {
-                                if (evento.key === 'Enter' || evento.key === ' ') {
-                                    evento.preventDefault();
+                            botonBioEnglish.addEventListener('click', alternarZoom);
+                            imagen.addEventListener('click', () => {
+                                if (imagen.classList.contains('zoom')) {
                                     alternarZoom();
                                 }
-                                if (evento.key === 'Escape') {
+                            });
+                            document.addEventListener('keydown', (evento) => {
+                                if (evento.key === 'Escape' && imagen.classList.contains('zoom')) {
                                     imagen.classList.remove('zoom');
                                     imagen.src = imagenOriginal;
                                     imagen.setAttribute('aria-label', 'Ampliar imagen');
