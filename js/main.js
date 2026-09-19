@@ -89,6 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
+    // FACADE DE VIDEOS DE YOUTUBE (miniatura instantánea, iframe solo al hacer click)
+    // ==========================================================================
+    document.querySelectorAll('.youtube-facade').forEach((facade) => {
+        const videoId = facade.dataset.youtubeId;
+        const videoTitle = facade.dataset.youtubeTitle || 'Video de YouTube';
+        if (!videoId) return;
+
+        facade.style.backgroundImage = `url('https://img.youtube.com/vi/${videoId}/hqdefault.jpg')`;
+
+        const boton = document.createElement('div');
+        boton.className = 'youtube-facade-play';
+        boton.innerHTML = '<i class="fa-solid fa-play"></i>';
+        facade.appendChild(boton);
+
+        facade.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.className = 'w-full h-full';
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.title = videoTitle;
+            iframe.frameBorder = '0';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            facade.replaceWith(iframe);
+        }, { once: true });
+    });
+
+    // ==========================================================================
     // CARRUSEL DE FOTOS EN 2 FILAS (movimiento automático en direcciones opuestas)
     // ==========================================================================
     const imagenesGaleria = [

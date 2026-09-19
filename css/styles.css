@@ -155,3 +155,51 @@
     from { transform: translateY(-50%); }
     to { transform: translateY(0); }
 }
+
+/* Ajustes puntuales de encuadre para fotos que el recorte central corta mal */
+.marquee-track img[src*="IMG_1068"],
+.marquee-col-track img[src*="IMG_1068"] {
+    object-position: top;
+}
+
+/* ==========================================================================
+   FACADE DE VIDEOS DE YOUTUBE (miniatura instantánea + carga del iframe al click)
+   ========================================================================== */
+.youtube-facade {
+    position: relative;
+    cursor: pointer;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+}
+
+.youtube-facade::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.youtube-facade .youtube-facade-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.35rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.youtube-facade:hover .youtube-facade-play {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(139, 92, 246, 0.85);
+}
