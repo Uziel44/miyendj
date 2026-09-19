@@ -7,68 +7,16 @@
     <title>M I Y E N | DJ & Producer</title>
     <!-- Importación de Tailwind CSS por CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clubBlack: '#050508', // Negro profundo de boliche / club
-                        neonViolet: '#8B5CF6', // Violeta brillante neón para resaltar
-                        neonMagenta: '#D946EF', // Magenta brillante para acentos enérgicos
-                        glassBg: 'rgba(15, 15, 25, 0.7)', // Fondo traslúcido para tarjetas de vidrio (glassmorphism)
-                        glassBorder: 'rgba(255, 255, 255, 0.08)' // Borde fino sutil para el vidrio
-                    },
-                    fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        display: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        };
-    </script>
     <!-- Fuentes modernas de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;850&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Iconos de FontAwesome para todas las redes sociales del DJ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Desplazamiento suave y estilización de la barra de scroll horizontal del carrusel */
-        .scrollbar-thin::-webkit-scrollbar {
-            height: 6px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-            background: rgba(21, 5, 165, 0.4); /* Color violeta neón semi-transparente */
-            border-radius: 10px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-            background: rgba(68, 116, 213, 0.8);
-        }
-        
-        /* Efecto de brillo de fondo para la vibra de luces de cabina */
-        .neon-glow-bg {
-            background: radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(217, 70, 239, 0.05) 40%, transparent 70%);
-        }
-
-        @media (max-width: 640px) {
-            body {
-                -webkit-text-size-adjust: 100%;
-                text-size-adjust: 100%;
-            }
-
-            .text-xs {
-                font-size: 0.875rem;
-            }
-
-            .text-sm {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Configuración de Tailwind y lógica del sitio -->
+    <script src="js/main.js" defer></script>
 </head>
 <body class="bg-clubBlack text-white font-sans antialiased min-h-screen neon-glow-bg flex flex-col">
 
@@ -77,9 +25,9 @@
     <!-- ========================================================================= -->
     <header class="fixed top-0 left-0 z-50 w-full border-b border-glassBorder bg-clubBlack/80 backdrop-blur-md">
         <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-            
+
             <!-- LOGOTIPO DEL DJ -->
-                  
+
             <a href="#inicio" class="flex items-center gap-3">
                 <!-- Se agregó: w-14, aspect-square y rounded-full -->
                 <img src="LOGO BLANCO.png" alt="Logo de MIYEN" class="h-12 w-12 aspect-square rounded-full object-contain">
@@ -91,7 +39,7 @@
                 <a class="transition hover:text-neonViolet" href="#social">PHOTOS</a>
                 <a class="transition hover:text-neonViolet" href="#contact">FLYERS & SHOWS</a>
                 <a class="transition hover:text-neonViolet" href="#contact">RIDER TECNICO</a>
-                
+
                 <!-- Botón de acción destacado a WhatsApp -->
                 <!-- COMENTARIO REEMPLAZO: Cambiá el número '5493517732496' por el tuyo en el 'href' si querés otro contacto rápido -->
                 <a class="rounded-full bg-gradient-to-r from-neonViolet to-neonMagenta px-5 py-2.5 text-white transition hover:scale-105 active:scale-95 duration-200" href="https://wa.me/5219982222524?text=Hola%20MIYEN,%20quiero%20consultar%20por%20un%20Booking!"  target="_blank" rel="noreferrer">
@@ -168,10 +116,10 @@
                 <!-- Llamadas a la acción (CTAs) -->
                 <div class="flex flex-col sm:flex-row gap-4 w-full justify-center px-4 max-w-md">
                     <a href="#deeproom" class="rounded-full bg-gradient-to-r from-neonViolet to-neonMagenta px-8 py-4 font-bold text-center transition hover:scale-105 active:scale-95 shadow-lg shadow-neonViolet/20">
-                        Escuchar Música 
+                        Escuchar Música
                     </a>
                     <a href="#contact" class="rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-4 font-bold text-center transition hover:bg-white/10 hover:border-white/40">
-                        Reservar Fecha 
+                        Reservar Fecha
                     </a>
                 </div>
             </div>
@@ -188,67 +136,12 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-1xl mx-auto">
-                
+
                 <!-- Foto 1 (Arriba Izquierda) -->
                 <div class="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-glassBorder bg-zinc-900 shadow-md">
                     <!-- COMENTARIO REEMPLAZO: Reemplazá 'cabina_1.jpg' por tu propia imagen de cabina de DJ -->
                     <img id="mi-imagen" src="03.jpg" alt="Miyen mezclando en vivo" class="imagen-normal w-full h-full object-contain transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800'">
                     <button id="boton-bio-english" type="button" class="absolute bottom-4 right-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white bg-transparent border border-white/70 rounded-md backdrop-blur-sm transition hover:bg-white/10">BIO ENGLISH</button>
-
-                        <!-- 2. CSS: Transición entre estados -->
-                        <style>
-                        /* Estado normal de la imagen */
-                            .imagen-normal {
-                            transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
-                        }
-
-                        /* Estado ampliado (Se activa al agregar la clase con JS) */
-                        .imagen-normal.zoom {
-                                position: fixed;
-                                inset: 5vh 5vw;
-                                width: 90vw;
-                                height: 90vh;
-                                object-fit: contain;
-                                transform: none;
-                            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-                                z-index: 60;
-                                background: rgba(5, 5, 8, 0.96);
-                                cursor: pointer;
-                        }
-                        </style>
-
-                        <!-- 3 y 4. JS: Captura de evento y conmutación de clase -->
-                        <script>
-                        const imagen = document.getElementById('mi-imagen');
-                        const imagenOriginal = imagen.src;
-                        const botonBioEnglish = document.getElementById('boton-bio-english');
-
-                            const alternarZoom = () => {
-                            imagen.classList.toggle('zoom');
-                                if (imagen.classList.contains('zoom')) {
-                                    imagen.src = 'BIO ENGLISH.png';
-                                    imagen.setAttribute('aria-label', 'Restaurar imagen');
-                                } else {
-                                    imagen.src = imagenOriginal;
-                                    imagen.setAttribute('aria-label', 'Ampliar imagen');
-                                }
-                            };
-
-                            botonBioEnglish.addEventListener('click', alternarZoom);
-                            imagen.addEventListener('click', () => {
-                                if (imagen.classList.contains('zoom')) {
-                                    alternarZoom();
-                                }
-                            });
-                            document.addEventListener('keydown', (evento) => {
-                                if (evento.key === 'Escape' && imagen.classList.contains('zoom')) {
-                                    imagen.classList.remove('zoom');
-                                    imagen.src = imagenOriginal;
-                                    imagen.setAttribute('aria-label', 'Ampliar imagen');
-                                }
-                            });
-                        </script>
-
                 </div>
 
                 <!-- Foto 2 (Arriba Derecha) -->
@@ -266,7 +159,7 @@
                     <img src="01.jpg" alt="Auriculares y compu DJ" class="w-full h-full object-contain transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800'">
                     <div class="absolute inset-0 bg-gradient-to-t from-clubBlack via-clubBlack/10 to-transparent opacity-80"></div>
                     <div class="absolute bottom-4 left-4">
-                    
+
                     </div>
                 </div>
 
@@ -276,14 +169,21 @@
                     <img src="05.jpg" alt="Atardecer y música" class="w-full h-full object-contain transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&q=80&w=800'">
                     <div class="absolute inset-0 bg-gradient-to-t from-clubBlack via-clubBlack/10 to-transparent opacity-80"></div>
                     <div class="absolute bottom-4 left-4">
-                        
+
                     </div>
 
 
-                    
+
             </div>
 
-        
+            <!-- Tarjeta de Video Destacado (autoplay en loop, sonido activable) -->
+            <div class="relative mt-6 max-w-2xl mx-auto rounded-2xl overflow-hidden border border-glassBorder bg-zinc-900 shadow-md">
+                <video id="video-destacado" class="w-full h-full object-contain" src="0919.mp4" autoplay loop muted playsinline></video>
+                <button id="boton-activar-sonido" type="button" class="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white bg-black/50 border border-white/70 rounded-md backdrop-blur-sm transition hover:bg-white/10">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                    <span>Activar Sonido</span>
+                </button>
+            </div>
 
         </section>
 
@@ -295,99 +195,228 @@
             <div class="text-center mb-12">
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-neonViolet" data-series="music">MUSIC</h2>
                 <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">A lo largo de los años, y con la particularidad amplia de mi sonido y de mis gustos musicales, oriundos del rock, funk, reggae & blues, he aprendido a desarrollar un oído amplio, y crítico también, por lo que eso lo inculque dentro de mis sessions, aprender a no encasillarme en un solo género es lo que me caracteriza, soy un gran amante de todo este maravilloso árbol que se llama MUSICA ELECTRONICA, desde chill out con BPM con percusiones muy bajas, suaves y sonidos ambientes predominantes, hasta el más violento, híbrido y oscuro psychotrance. En toda esa gama me despliego, y soy respetuoso por todos los géneros, mi biblioteca musical -dentro de apple music, rekordbox o engine dj- está abierta a todo tipo de eventos dentro de la gama de djing electrónico, por supuesto, algunos géneros me gustan más, otros menos, pero siempre los escucho y en base a ello, decido. Cada género nos deja una enseñanza y es aplicable en un momento o contexto determinado. Voy a guiarlos dentro de mi música, y de mis preferencias musicales, llamadas "MIS SERIES".</p>
-            </div>
 
+            </div>
+<div class="flex items-center justify-center gap-3 mb-12">
+                <img src="1. LOGO DEEP ROOM.png" alt="Logo Deep Room" class="h-10 w-10 object-contain">
+                <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-neonViolet" data-series="music">DEEP ROOM SERIES</h2>
+                <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto"> 70% Deep House, 10% Minimal Groove, finalizando con un 20% Progressive House suave, alegre y bailable. Rango promedio BPM (119-124).
+</p>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
 
-                <!-- Video 1 (ROLLERCOASTER 003) -->
+
+
+                <!-- DEEP ROOM 001 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vHwDZPFJSyM" title="ROLLERCOASTER 003" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom-001"></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Último Set</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 003</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Tech House</p>
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 001</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
 
-                <!-- Video 2 (DEEP ROOM #011) -->
+                <!-- DEEP ROOM 002 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZtdV2CQlUE8" title="DEEP ROOM #011" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-002"></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Bombinhas Set</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM #011</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Deep House</p>
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 002</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
 
-                <!-- Video 3 (ROLLERCOASTER 002) -->
+                <!-- DEEP ROOM 003 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/z6WtiafLdfY" title="ROLLERCOASTER 002" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-003"></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Tech Grooves</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 002</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Minimal Deep</p>
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 003</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
 
-                <!-- Video 4 (CASA HOUSE 002) -->
+                <!-- DEEP ROOM 004 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/X4LFz74gZnk" title="CASA HOUSE 002" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-004"></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">La Roca</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">CASA HOUSE 002</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Progressive House</p>
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 004</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 005 - PROGRESSIVE HOUSE EDITION -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-005"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Progressive House Edition</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 005</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 006 -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom006"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 006</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 007 (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ujaw5j3NEHE" title="DEEP ROOM 007" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 007</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                       
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 008 (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/mJIR1DtmLHU" title="DEEP ROOM 008" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 008</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 009 - CENOTE EDITION / MEXICO (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/_O9yuLB6bTA" title="DEEP ROOM 009" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Cenote Edition · México</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 009</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 010 - HANGAR EDITION (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Vx3jGAOqVSw" title="DEEP ROOM 010" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Hangar Edition</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 010</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+
+                <!-- DEEP ROOM 011 - BOMBINHAS / BRAZIL (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZtdV2CQlUE8" title="DEEP ROOM 011" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Bombinhas · Brazil</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 011</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
                     </div>
                 </div>
             </div>
 
             <!-- SEGUNDA SECCIÓN: ROLLERCOASTER SERIES -->
-            <div class="text-center mb-12 mt-16">
+            <div class="flex items-center justify-center gap-3 mb-12 mt-16">
+                <!-- COMENTARIO REEMPLAZO: agregar aquí <img src="NOMBRE_DEL_ARCHIVO.png" alt="Logo Rollercoaster" class="h-10 w-10 object-contain"> cuando esté disponible el logo -->
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-neonViolet" data-series="rollercoaster">ROLLERCOASTER SERIES</h2>
-                <p class="series-text text-gray-400 text-sm mt-2 hidden leading-relaxed max-w-3xl mx-auto"><span class="text-neonViolet font-semibold">100% Progressive House.</span> Pura de raza exclusiva dentro de progressive. Sets que no superan 1 hora, utilizando música de los últimos 3 meses de lanzamiento. Iniciando con grooves suaves hacia escenarios intensos, ambientes oscuros, groove profundo y sonidos futuristas. <span class="text-cyan-400 font-semibold">BPM: 121-123</span></p>
+                <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">100% Progressive House. Es una serie pura, de raza exclusiva dentro de progressive, sets que en lo posible no superan 1 hora, e intento utilizar música con el rango de los últimos 3 meses de lanzamiento. Iniciando con grooves suaves para llevarlo a un escenario intenso, con ambientes oscuros, con mucho groove y sonidos futuristas dentro del género. Rango promedio BPM (121-123).</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
-                <!-- Video 1 (ROLLERCOASTER 003) -->
+
+                <!-- ROLLERCOASTER 001 (SOUNDCLOUD & YOUTUBE) -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vHwDZPFJSyM" title="ROLLERCOASTER 003" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/qFTVC63kz7I" title="ROLLERCOASTER 001" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Último Set</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 003</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Tech House</p>
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Rollercoaster</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 001</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
                     </div>
                 </div>
 
-                <!-- Video 3 (ROLLERCOASTER 002) -->
+                <!-- ROLLERCOASTER 002 (SOUNDCLOUD & YOUTUBE) -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/z6WtiafLdfY" title="ROLLERCOASTER 002" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Tech Grooves</span>
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Rollercoaster</span>
                         <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 002</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Minimal Deep</p>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+
+                <!-- ROLLERCOASTER 003 (SOUNDCLOUD & YOUTUBE) -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vHwDZPFJSyM" title="ROLLERCOASTER 003" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Rollercoaster</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ROLLERCOASTER 003</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
                     </div>
                 </div>
             </div>
 
             <!-- TERCERA SECCIÓN: CASA HOUSE SERIES -->
-            <div class="text-center mb-12 mt-16">
+            <div class="flex items-center justify-center gap-3 mb-12 mt-16">
+                <!-- COMENTARIO REEMPLAZO: agregar aquí <img src="NOMBRE_DEL_ARCHIVO.png" alt="Logo Casa House" class="h-10 w-10 object-contain"> cuando esté disponible el logo -->
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-pink-400" data-series="casahouse">CASA HOUSE SERIES</h2>
-                <p class="series-text text-gray-400 text-sm mt-2 hidden leading-relaxed max-w-3xl mx-auto"><span class="text-pink-400 font-semibold">40% House • 40% Groove & Deep Minimal • 20% Afro House.</span> Mi lado más "alegre". Sets para disfrutar de día o en clubes específicos de house, con momentos de entretenimiento pleno. Muy diversos, con vocal, trompeta, instrumentales. Fluyendo según el mood de la pista con libertad de mezclar lugares inesperados. <span class="text-cyan-400 font-semibold">BPM: 124-130</span></p>
+                <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">40% House, 40% Groove & Deep Minimal, 20% Afro House. Mi lado más "alegre", son sets que preferentemente me gusta hacerlos de día o en clubes y eventos específicos de house, con momentos de entretenimiento y diversión plena, compuesto de tracks muy diversos, mucho vocal, trompeta, instrumentales, va fluyendo de acuerdo al mood de la pista. La más variable de todas mis series en la que tengo libertad de mezclar y transitar por lugares inesperados y no tan habituales. Rango promedio BPM (124-130).</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
-                <!-- Video 4 (CASA HOUSE 002) -->
+
+                <!-- CASA HOUSE 001 -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Io9zAPaNeHg" title="CASA HOUSE 001" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">Casa House</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">CASA HOUSE 001</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+
+                <!-- CASA HOUSE 002 - LA ROCA -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/X4LFz74gZnk" title="CASA HOUSE 002" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -395,71 +424,180 @@
                     <div class="p-3 sm:p-5">
                         <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">La Roca</span>
                         <h3 class="text-white font-bold text-sm sm:text-lg mt-1">CASA HOUSE 002</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Progressive House</p>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
                     </div>
                 </div>
             </div>
 
             <!-- CUARTA SECCIÓN: ETNIAS SERIES -->
-            <div class="text-center mb-12 mt-16">
+            <div class="flex items-center justify-center gap-3 mb-12 mt-16">
+                <!-- COMENTARIO REEMPLAZO: agregar aquí <img src="NOMBRE_DEL_ARCHIVO.png" alt="Logo Etnias" class="h-10 w-10 object-contain"> cuando esté disponible el logo -->
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-orange-400" data-series="etnias">ETNIAS SERIES</h2>
-                <p class="series-text text-gray-400 text-sm mt-2 hidden leading-relaxed max-w-3xl mx-auto"><span class="text-orange-400 font-semibold">100% Downtempo • Afro-Organic House.</span> Nacida en TULUM, absolutamente introspectiva, personal y voladora. No es un set para bailar, es para sentir, escuchar y conectar con el entorno natural. Un viaje de culturas y magias ancestrales. Música que intriga desde pequeño, conectando con raíces profundas. <span class="text-cyan-400 font-semibold">BPM: 110-118</span></p>
+                <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">Nacido por mi paso en la mítica TULUM, es una serie absolutamente introspectiva, personal y voladora. 100% Downtempo, Afro-Organic House. Siempre digo, "ETNIAS no es un set para bailar, es un set para sentir, para escuchar y conectar con el entorno natural, es un viaje de culturas y magias ancestrales" (que desde pequeño me ha intrigado). Rango promedio BPM (110-118).</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
-                <!-- Video 2 (DEEP ROOM #011) - ETNIAS -->
+
+                <!-- ETNIAS 001 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZtdV2CQlUE8" title="DEEP ROOM #011" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hPSoqKPorrc" title="ETNIAS 001" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
                         <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Etnias</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM #011</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Deep House</p>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ETNIAS 001</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+
+                <!-- ETNIAS 002 -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/etnias-part-2-mixed-by-m-i-y-n"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Etnias</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ETNIAS 002</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
             </div>
 
             <!-- QUINTA SECCIÓN: XIBALBA SERIES -->
-            <div class="text-center mb-12 mt-16">
+            <div class="flex items-center justify-center gap-3 mb-12 mt-16">
+                <!-- COMENTARIO REEMPLAZO: agregar aquí <img src="NOMBRE_DEL_ARCHIVO.png" alt="Logo Xibalba" class="h-10 w-10 object-contain"> cuando esté disponible el logo -->
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-red-400" data-series="xibalba">XIBALBA SERIES</h2>
-                <p class="series-text text-gray-400 text-sm mt-2 hidden leading-relaxed max-w-3xl mx-auto"><span class="text-red-400 font-semibold">80% Techno-Melodic • 20% Progressive Hibrid-Organic.</span> Como ETNIAS nos lleva por un camino espiritual, XIBALBA nos guía hacia lo underground y oscuro. Tracks orgánicos que conectan con la naturaleza desde el espectro techno-progressive. Xibalba (para los mayas) era el paso hacia el inframundo, donde el alma se elevaba. Momentos oscuros, temibles y liberadores. <span class="text-cyan-400 font-semibold">BPM: 124-130</span></p>
+                <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">Por último y no menos importante, llega el Techno. 80% Techno-Melodic, 20% Progressive Hibrid-Organic. Es una serie que así como ETNIAS nos lleva por un camino más espiritual, XIBALBA nos lleva por un camino más underground y más oscuro, sin dejar de lado tracks muy orgánicos que conectan con el entorno natural, pero desde el espectro techno-progressive. Xibalba (para los mayas) era el paso hacia el 'inframundo' donde el alma se elevaba al mundo de los dioses luego de la muerte. Eso intento transmitir en cada session, momentos oscuros, temibles -como el temor de ese instante en el encuentro con la muerte- como la liberación y sanación post-mortem. Rango promedio BPM (124-130).</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
-                <!-- Video 5 (DEEP ROOM 10) - XIBALBA -->
+
+                <!-- XIBALBA - CH. 1 -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
                     <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Vx3jGAOqVSw" title="DEEP ROOM 10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/G-37dLMM5Jg" title="XIBALBA - Ch. 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
                         <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Xibalba</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM #010</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N - Techno</p>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">XIBALBA - Ch. 1</h3>
+                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEXTA SECCIÓN: SET MÁS RECIENTE - LATEST SET -->
+            <div class="flex items-center justify-center gap-3 mb-12 mt-16">
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-white" data-series="latestset">SET MÁS RECIENTE - LATEST SET</h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-20">
+                <div class="bg-glassBg rounded-2xl overflow-hidden border-2 border-neonViolet/40 shadow-2xl shadow-neonViolet/10">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vHwDZPFJSyM" title="ROLLERCOASTER 003 - 2026 August" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 sm:p-7">
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Último Set</span>
+                        <h3 class="text-white font-bold text-lg sm:text-2xl mt-1">ROLLERCOASTER 003 - 2026 AUGUST</h3>
+                        <div class="flex flex-wrap gap-x-6 gap-y-1 mt-3 text-sm text-gray-300">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-sliders text-neonViolet"></i> Progressive House</span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-clock text-neonViolet"></i> 2h 17' 20"</span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-neonMagenta"></i> Rio de Janeiro 🇧🇷</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OTROS SETS -->
+            <div class="text-center mb-12 mt-16">
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-white">OTROS SETS</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
+
+                <!-- RAICES 001 - ROCK ARGENTINO REMIXES -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/xCiuYjXI174" title="RAICES 001 - Rock Argentino Remixes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Rock Argentino Remixes</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">RAICES 001</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
 
-                <!-- Video 6 (Zebra Club Short) -->
+                <!-- SUNSET TERRAZA DEL MAR / CANCUN -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full bg-zinc-900 flex items-center justify-center">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/mqNmeurCsQA" title="Navidad Zebra Club" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/TBdJMmZz6rM" title="Sunset Terraza del Mar / Cancun" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Live</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">ZEBRA CLUB (Navidad)</h3>
-                        <p class="text-gray-400 text-xs mt-1">Dj Set en Villa Carlos Paz</p>
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Cancún</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">SUNSET TERRAZA DEL MAR</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
 
-                <!-- Video 7 (Zebra Club Short 2) -->
+                <!-- LYING MIRROR -->
                 <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full bg-zinc-900 flex items-center justify-center">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/rLpnG2YSGKY" title="Zebra Club Session" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/uKQsxLdeH7w" title="Lying Mirror" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-3 sm:p-5">
-                        <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Live</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">Vibras Electrónicas</h3>
-                        <p class="text-gray-400 text-xs mt-1">Zebra Club - Navidad 2025</p>
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Otros Sets</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">LYING MIRROR</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- MENTAL CLARITY 01 -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vlTP0XQY7kU" title="Mental Clarity 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Otros Sets</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">MENTAL CLARITY 01</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- MENTAL CLARITY 02 -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/mental-clarity-ed2"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Otros Sets</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">MENTAL CLARITY 02</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- LAPSES OF KNOWLEDGE -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/lapses-of-knowledge-by-miyen-chiodi"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Otros Sets</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">LAPSES OF KNOWLEDGE</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                    </div>
+                </div>
+
+                <!-- FLYING OVER SUNFLOWER FIELDS -->
+                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/flying-over-sunflower-fields"></iframe>
+                    </div>
+                    <div class="p-3 sm:p-5">
+                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Otros Sets</span>
+                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">FLYING OVER SUNFLOWER FIELDS</h3>
+                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
                     </div>
                 </div>
             </div>
@@ -467,89 +605,20 @@
 
 
         <!-- ========================================================================= -->
-        <!-- PARTE 5: SCROLL CARRUSEL (EJEMPLO PROPORCIONADO)                          -->
+        <!-- PARTE 5: CARRUSEL DE FOTOS EN 2 FILAS (MOVIMIENTO AUTOMÁTICO CONTRARIO)   -->
         <!-- ========================================================================= -->
-        <section class="max-w-6xl mx-auto px-4 py-16 border-t border-white/5">
-            <h2 class="text-white text-center font-bold text-2xl md:text-3xl mb-2 uppercase tracking-wide"> MY MUSIC</h2>
-            <p class="text-gray-300 text-center mb-10 text-sm md:text-base">Desliza y escucha mis últimos lanzamientos, remix & Sets </p>
+        <section class="py-16 border-t border-white/5 overflow-hidden">
+            <h2 class="text-white text-center font-bold text-2xl md:text-3xl mb-2 uppercase tracking-wide">MY MUSIC</h2>
+            <p class="text-gray-300 text-center mb-10 text-sm md:text-base">La atmósfera detrás de cada set, foto a foto</p>
 
-            <!-- Contenedor del Carrusel (Permite el desplazamiento horizontal con scroll) -->
-            <div class="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scrollbar-thin max-w-5xl mx-auto px-2">
-                
-                <!-- Tarjeta 1 -->
-                <div class="min-w-[280px] md:min-w-[320px] bg-zinc-900 rounded-2xl overflow-hidden border border-glassBorder shadow-lg flex-shrink-0 snap-start transition duration-300 hover:border-neonViolet/30">
-                    <div class="h-64 bg-zinc-850 relative">
-                        <img src="01.jpg" alt="ETNIAS Part 2" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=400'">
-                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-4 py-2 rounded-full border border-white/45 bg-white/10 text-sm">Escuchar ↗</a>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-zinc-900 text-white border-t border-white/5">
-                        <h3 class="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">ETNIAS - Part 2</h3>
-                        <p class="text-sm text-neonViolet mb-1">Mixed by M I Y E N</p>
-                        <p class="text-xs text-gray-400 mb-4">Downtempo, Afro & Organic House</p>
-                        
-                        <!-- AGREGADO AQUÍ: Botón directo a SoundCloud -->
-                        <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-orange-400 hover:text-orange-300 font-semibold gap-1">
-                            Escuchar en SoundCloud ↗
-                        </a>
-                    </div>
-                </div>
+            <!-- Fila 1: se desliza hacia la izquierda -->
+            <div class="marquee-row mb-4">
+                <div id="marquee-fila-1" class="marquee-track"></div>
+            </div>
 
-                <!-- Tarjeta 2 -->
-                <div class="min-w-[280px] md:min-w-[320px] bg-zinc-900 rounded-2xl overflow-hidden border border-glassBorder shadow-lg flex-shrink-0 snap-start transition duration-300 hover:border-neonMagenta/30">
-                    <div class="h-64 bg-zinc-850 relative">
-                        <img src="05.jpg" alt="DEEP ROOM #005" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=80&w=400'">
-                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-4 py-2 rounded-full border border-white/45 bg-white/10 text-sm">Escuchar ↗</a>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-zinc-900 text-white border-t border-white/5">
-                        <h3 class="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">DEEP ROOM #007</h3>
-                        <p class="text-sm text-neonMagenta mb-2">Mixed by M I Y E N</p>
-                        <p class="text-xs text-gray-400">Genre: Deep, Organic & Progressive</p>
-                        <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-orange-400 hover:text-orange-300 font-semibold gap-1">
-                            Escuchar en SoundCloud ↗
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="min-w-[280px] md:min-w-[320px] bg-zinc-900 rounded-2xl overflow-hidden border border-glassBorder shadow-lg flex-shrink-0 snap-start transition duration-300 hover:border-neonViolet/30">
-                    <div class="h-64 bg-zinc-850 relative">
-                        <img src="04.jpg" alt="ETNIAS Part 2" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=400'">
-                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-4 py-2 rounded-full border border-white/45 bg-white/10 text-sm">Escuchar ↗</a>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-zinc-900 text-white border-t border-white/5">
-                        <h3 class="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">DEEP ROOM #006</h3>
-                        <p class="text-sm text-neonViolet mb-2">Mixed by M I Y E N</p>
-                        <p class="text-xs text-gray-400">Genre: Deep, Organic & Progressive</p>
-                        <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-orange-400 hover:text-orange-300 font-semibold gap-1">
-                            Escuchar en SoundCloud ↗
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 4 (Adicional) -->
-                <div class="min-w-[280px] md:min-w-[320px] bg-zinc-900 rounded-2xl overflow-hidden border border-glassBorder shadow-lg flex-shrink-0 snap-start transition duration-300 hover:border-cyan-400/30">
-                    <div class="h-64 bg-zinc-850 relative">
-                        <img src="08.jpg" alt="ETNIAS Part 2" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=400'">
-                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="text-white font-bold px-4 py-2 rounded-full border border-white/45 bg-white/10 text-sm">Escuchar ↗</a>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-zinc-900 text-white border-t border-white/5">
-                        <h3 class="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">DEEP ROOM #005</h3>
-                        <p class="text-sm text-cyan-400 mb-2">Mixed by M I Y E N</p>
-                        <p class="text-xs text-gray-400">Genre: Progressive & Deep House</p>
-                        <a href="https://soundcloud.com/michycream/rollercoaster-003-mixed-by-m-i" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-orange-400 hover:text-orange-300 font-semibold gap-1">
-                            Escuchar en SoundCloud ↗
-                        </a>
-                    </div>
-                </div>
-
+            <!-- Fila 2: se desliza hacia la derecha -->
+            <div class="marquee-row">
+                <div id="marquee-fila-2" class="marquee-track marquee-track-reverse"></div>
             </div>
         </section>
 
@@ -564,7 +633,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                
+
                 <!-- Botón YouTube -->
                 <!-- COMENTARIO REEMPLAZO: Reemplazá el 'href' por el enlace de tu canal oficial de YouTube -->
                 <a href="https://www.youtube.com/@miyen-music" target="_blank" rel="noreferrer" class="flex items-center gap-4 p-5 bg-red-600/10 border border-red-500/20 hover:bg-red-600/20 rounded-xl transition duration-300 group">
@@ -610,97 +679,29 @@
 
 
         <!-- ========================================================================= -->
-        <!-- PARTE 7: GRID DE IMÁGENES 3X3                                             -->
+        <!-- PARTE 7: 3 CARRUSELES VERTICALES (SCROLL AUTOMÁTICO EN DIRECCIONES CONTRARIAS) -->
         <!-- ========================================================================= -->
-        <section class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5">
+        <section class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5 overflow-hidden">
             <div class="text-center mb-10">
                 <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">MEDIA GALLERY </h2>
                 <p class="text-gray-400 text-sm mt-2">La atmósfera de la cabina y la pista de baile</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                
-                <!-- Foto 1 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_1.jpg' por tu propia foto -->
-                    <img src="04.jpg" alt="Miyen DJ" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
+            <div class="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <!-- Columna 1: se desliza hacia arriba -->
+                <div class="marquee-col">
+                    <div id="marquee-col-1" class="marquee-col-track"></div>
                 </div>
 
-                <!-- Foto 2 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_2.jpg' por tu propia foto -->
-                    <img src="05.jpg" alt="DJ Set en boliche" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
+                <!-- Columna 2 (medio): se desliza hacia abajo -->
+                <div class="marquee-col">
+                    <div id="marquee-col-2" class="marquee-col-track marquee-col-track-reverse"></div>
                 </div>
 
-                <!-- Foto 3 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_3.jpg' por tu propia foto -->
-                    <img src="06.jpg" alt="Groove" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
+                <!-- Columna 3: se desliza hacia arriba -->
+                <div class="marquee-col">
+                    <div id="marquee-col-3" class="marquee-col-track"></div>
                 </div>
-
-                <!-- Foto 4 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_4.jpg' por tu propia foto -->
-                    <img src="07.jpg" alt="Zebra Club" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
-                <!-- Foto 5 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_5.jpg' por tu propia foto -->
-                    <img src="08.jpg" alt="Pista de boliche" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
-                <!-- Foto 6 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_6.jpg' por tu propia foto -->
-                    <img src="02.jpg" alt="Miyen tocando" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1516873240891-4bf014598ab4?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
-                <!-- Foto 7 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_7.jpg' por tu propia foto -->
-                    <img src="03.jpg" alt="Sunset Session" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
-                <!-- Foto 8 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_8.jpg' por tu propia foto -->
-                    <img src="04.jpg" alt="Audience" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
-                <!-- Foto 9 -->
-                <div class="group relative aspect-square rounded-xl overflow-hidden border border-glassBorder bg-zinc-900">
-                    <!-- COMENTARIO REEMPLAZO: Reemplazá 'galeria_9.jpg' por tu propia foto -->
-                    <img src="05.jpg" alt="Console glow" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1482440308425-276ad0f28b19?auto=format&fit=crop&q=80&w=400'">
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-xs text-white font-bold uppercase border border-white/50 px-3 py-1.5 rounded-full">Ver Grande</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -711,7 +712,7 @@
     <!-- ========================================================================= -->
     <footer id="contact" class="bg-clubBlack border-t border-glassBorder py-16 text-white mt-auto">
         <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 md:grid-cols-3">
-            
+
             <!-- Bio rápida e identidad del pie -->
             <div>
                 <div class="font-display text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neonViolet to-neonMagenta">
@@ -751,40 +752,6 @@
 
         </div>
     </footer>
-
-    <!-- ========================================================================= -->
-    <!-- INTERACTIVIDAD DE MENÚ MÓVIL Y SERIES (JAVASCRIPT)                        -->
-    <!-- ========================================================================= -->
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        // Lógica para abrir y cerrar el menú móvil al hacer clic
-        if (menuButton && mobileMenu) {
-            menuButton.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.toggle('hidden');
-                menuButton.setAttribute('aria-expanded', String(isOpen));
-            });
-
-            // Cerrar menú móvil al hacer clic en cualquier enlace
-            mobileMenu.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuButton.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-
-        // Interactividad de Series (mostrar/ocultar texto)
-        document.querySelectorAll('.series-title').forEach((title) => {
-            title.addEventListener('click', () => {
-                const textElement = title.closest('.text-center').querySelector('.series-text');
-                if (textElement) {
-                    textElement.classList.toggle('hidden');
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>

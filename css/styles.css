@@ -1,0 +1,157 @@
+/* Desplazamiento suave y estilización de la barra de scroll horizontal del carrusel */
+.scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(21, 5, 165, 0.4); /* Color violeta neón semi-transparente */
+    border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(68, 116, 213, 0.8);
+}
+
+/* Efecto de brillo de fondo para la vibra de luces de cabina */
+.neon-glow-bg {
+    background: radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(217, 70, 239, 0.05) 40%, transparent 70%);
+}
+
+@media (max-width: 640px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .text-xs {
+        font-size: 0.875rem;
+    }
+
+    .text-sm {
+        font-size: 1rem;
+    }
+}
+
+/* Estado normal de la imagen de bio con zoom */
+.imagen-normal {
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
+}
+
+/* Estado ampliado (Se activa al agregar la clase con JS) */
+.imagen-normal.zoom {
+    position: fixed;
+    inset: 5vh 5vw;
+    width: 90vw;
+    height: 90vh;
+    object-fit: contain;
+    transform: none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    z-index: 60;
+    background: rgba(5, 5, 8, 0.96);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   CARRUSEL DE FOTOS EN 2 FILAS (marquee automático en direcciones opuestas)
+   ========================================================================== */
+.marquee-row {
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 1rem;
+    animation: marquee-left 60s linear infinite;
+}
+
+.marquee-track-reverse {
+    animation-name: marquee-right;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-track img {
+    height: 160px;
+    width: 220px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .marquee-track img {
+        height: 200px;
+        width: 280px;
+    }
+}
+
+@keyframes marquee-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+/* ==========================================================================
+   3 CARRUSELES VERTICALES (scroll automático en direcciones contrarias)
+   ========================================================================== */
+.marquee-col {
+    height: 420px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+}
+
+@media (min-width: 768px) {
+    .marquee-col {
+        height: 600px;
+    }
+}
+
+.marquee-col-track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    animation: marquee-up 30s linear infinite;
+}
+
+.marquee-col-track-reverse {
+    animation-name: marquee-down;
+}
+
+.marquee-col-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-col-track img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+@keyframes marquee-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}
+
+@keyframes marquee-down {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(0); }
+}
