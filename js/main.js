@@ -89,48 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // VIDEO DESTACADO (autoplay en loop, sonido activable con un click)
-    // ==========================================================================
-    const videoDestacado = document.getElementById('video-destacado');
-    const botonActivarSonido = document.getElementById('boton-activar-sonido');
-
-    if (videoDestacado && botonActivarSonido) {
-        const iconoSonido = botonActivarSonido.querySelector('i');
-        const textoSonido = botonActivarSonido.querySelector('span');
-
-        const actualizarBoton = () => {
-            if (videoDestacado.muted) {
-                iconoSonido.className = 'fa-solid fa-volume-xmark';
-                textoSonido.textContent = 'Activar Sonido';
-            } else {
-                iconoSonido.className = 'fa-solid fa-volume-high';
-                textoSonido.textContent = 'Silenciar';
-            }
-        };
-
-        // Alterna el sonido del video al hacer clic en el botón
-        botonActivarSonido.addEventListener('click', () => {
-            videoDestacado.muted = !videoDestacado.muted;
-            actualizarBoton();
-        });
-
-        // Al clickear el video de fondo también se puede activar/silenciar
-        videoDestacado.addEventListener('click', () => {
-            videoDestacado.muted = !videoDestacado.muted;
-            actualizarBoton();
-        });
-
-        // Silencia el video destacado en cuanto se interactúa con cualquier
-        // iframe de YouTube (al hacer clic sobre uno, la ventana pierde el foco)
-        window.addEventListener('blur', () => {
-            if (document.activeElement && document.activeElement.tagName === 'IFRAME' && !videoDestacado.muted) {
-                videoDestacado.muted = true;
-                actualizarBoton();
-            }
-        });
-    }
-
-    // ==========================================================================
     // CARRUSEL DE FOTOS EN 2 FILAS (movimiento automático en direcciones opuestas)
     // ==========================================================================
     const imagenesGaleria = [
