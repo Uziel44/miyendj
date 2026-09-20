@@ -58,11 +58,11 @@
 
         <!-- MENÚ NAVEGADOR MÓVIL (Vertical en móvil, horizontal en desktop) -->
         <nav id="mobile-menu" class="hidden border-t border-glassBorder bg-clubBlack px-5 pb-4 pt-3 md:hidden flex flex-col gap-2 uppercase tracking-wider text-xs font-semibold text-center">
-            <a class="block py-2 transition hover:text-neonViolet" href="#deeproom">BIO</a>
-            <a class="block py-2 transition hover:text-neonViolet" href="#social">MUSIC</a>
-            <a class="block py-2 transition hover:text-neonViolet" href="#social">PHOTOS</a>
-            <a class="block py-2 transition hover:text-neonViolet" href="#contact">FLYERS & SHOWS</a>
-            <a class="block py-2 transition hover:text-neonViolet" href="#contact">RIDER TECNICO</a>
+            <a class="block py-2 transition hover:text-neonViolet" href="#bio">BIO</a>
+            <a class="block py-2 transition hover:text-neonViolet" href="#shows">SHOWS</a>
+            <a class="block py-2 transition hover:text-neonViolet" href="#deeproom">DEEP ROOMS SERIES</a>
+            <a class="block py-2 transition hover:text-neonViolet" href="#othersets">OTHER SETS</a>
+            <a class="block py-2 transition hover:text-neonViolet" href="#links">SOCIAL LINKS</a>
             <!-- COMENTARIO REEMPLAZO: Tu link a WhatsApp para booking desde celular -->
             <a class="mt-2 block rounded-full bg-gradient-to-r from-neonViolet to-neonMagenta py-2 px-4 text-center text-white text-xs transition hover:scale-105 active:scale-95 duration-200" href="https://wa.me/5219982222524?text=Hola%20MIYEN,%20quiero%20consultar%20por%20un%20Booking!" target="_blank" rel="noreferrer">
                 CONTACT
@@ -129,7 +129,7 @@
         <!-- ========================================================================= -->
         <!-- PARTE 3: GRID DE IMÁGENES 2X2                                             -->
         <!-- ========================================================================= -->
-        <section class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+        <section id="bio" class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
             <div class="text-center mb-10">
                 <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">BIO & INFORMACION PERSONAL</h2>
                 <p class="text-gray-400 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">Nacido en Villa Carlos Paz, Córdoba, Argentina. Actualmente residiendo en Brasil (Rio de Janeiro) Diseñando sets atmosféricos, grooves orgánicos, intensos y progresivos para conectar mentes en el dancefloor.. - "Born in Villa Carlos Paz, Córdoba, Argentina. Currently residing in Brazil (Rio de Janeiro). Designing atmospheric sets, organic, intense, and progressive grooves to connect minds on the dancefloor.</p>
@@ -158,7 +158,7 @@
 <!-- ========================================================================= -->
         <!-- PARTE 7: 3 CARRUSELES VERTICALES (SCROLL AUTOMÁTICO EN DIRECCIONES CONTRARIAS) -->
         <!-- ========================================================================= -->
-        <section class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5 overflow-hidden">
+        <section id="shows" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5 overflow-hidden">
             <div class="text-center mb-10">
                 <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">FLAYERS SHOWS EVENTS </h2>
                 <p class="text-gray-400 text-sm mt-2"></p>
@@ -191,7 +191,7 @@
         <!-- ========================================================================= -->
         <!-- PARTE 4: GRID DE VIDEOS DE YOUTUBE 3X3                                    -->
         <!-- ========================================================================= -->
-        <section id="deeproom" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5">
+        <section id="music" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5">
             <div class="text-center mb-12">
                 <h2 class="series-title font-display text-3xl font-extrabold tracking-tight text-white cursor-pointer transition hover:text-neonViolet" data-series="music">MUSIC</h2>
                 <p class="series-text text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl mx-auto">A lo largo de los años, y con la particularidad amplia de mi sonido y de mis gustos musicales, oriundos del rock, funk, reggae & blues, he aprendido a desarrollar un oído amplio, y crítico también, por lo que eso lo inculque dentro de mis sessions, aprender a no encasillarme en un solo género es lo que me caracteriza, soy un gran amante de todo este maravilloso árbol que se llama MUSICA ELECTRONICA, desde chill out con BPM con percusiones muy bajas, suaves y sonidos ambientes predominantes, hasta el más violento, híbrido y oscuro psychotrance. En toda esa gama me despliego, y soy respetuoso por todos los géneros, mi biblioteca musical -dentro de apple music, rekordbox o engine dj- está abierta a todo tipo de eventos dentro de la gama de djing electrónico, por supuesto, algunos géneros me gustan más, otros menos, pero siempre los escucho y en base a ello, decido. Cada género nos deja una enseñanza y es aplicable en un momento o contexto determinado. Voy a guiarlos dentro de mi música, y de mis preferencias musicales, llamadas "MIS SERIES".</p>
@@ -230,144 +230,146 @@
             
             
             
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
+            <!-- Carrusel de 2 filas (scroll manual) - orden del más reciente (011) al más antiguo (001) -->
+            <div class="max-w-6xl mx-auto space-y-4">
 
+                <!-- Fila 1: DEEP ROOM 011 → 006 -->
+                <div class="flex overflow-x-auto gap-4 sm:gap-6 pb-4 snap-x snap-mandatory scrollbar-thin px-2">
 
-
-                <!-- DEEP ROOM 001 -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom-001"></iframe>
+                    <!-- DEEP ROOM 011 - BOMBINHAS / BRAZIL (SOUNDCLOUD & YOUTUBE) -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <div class="youtube-facade w-full h-full" data-youtube-id="ZtdV2CQlUE8" data-youtube-title="DEEP ROOM 011"></div>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Bombinhas · Brazil</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 011</h3>
+                            <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        </div>
                     </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 001</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+
+                    <!-- DEEP ROOM 010 - HANGAR EDITION (SOUNDCLOUD & YOUTUBE) -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <div class="youtube-facade w-full h-full" data-youtube-id="Vx3jGAOqVSw" data-youtube-title="DEEP ROOM 010"></div>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Hangar Edition</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 010</h3>
+                            <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        </div>
+                    </div>
+
+                    <!-- DEEP ROOM 009 - CENOTE EDITION / MEXICO (SOUNDCLOUD & YOUTUBE) -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <div class="youtube-facade w-full h-full" data-youtube-id="_O9yuLB6bTA" data-youtube-title="DEEP ROOM 009"></div>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Cenote Edition · México</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 009</h3>
+                            <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        </div>
+                    </div>
+
+                    <!-- DEEP ROOM 008 (SOUNDCLOUD & YOUTUBE) -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <div class="youtube-facade w-full h-full" data-youtube-id="mJIR1DtmLHU" data-youtube-title="DEEP ROOM 008"></div>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 008</h3>
+                            <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        </div>
+                    </div>
+
+                    <!-- DEEP ROOM 007 (SOUNDCLOUD & YOUTUBE) -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <div class="youtube-facade w-full h-full" data-youtube-id="ujaw5j3NEHE" data-youtube-title="DEEP ROOM 007"></div>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 007</h3>
+                            <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
+                        </div>
+                    </div>
+
+                    <!-- DEEP ROOM 006 -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom006"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 006</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- DEEP ROOM 002 -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-002"></iframe>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 002</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
-                    </div>
-                </div>
+                <!-- Fila 2: DEEP ROOM 005 → 001 -->
+                <div class="flex overflow-x-auto gap-4 sm:gap-6 pb-4 snap-x snap-mandatory scrollbar-thin px-2">
 
-                <!-- DEEP ROOM 003 -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-003"></iframe>
+                    <!-- DEEP ROOM 005 - PROGRESSIVE HOUSE EDITION -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-005"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Progressive House Edition</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 005</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 003</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
-                    </div>
-                </div>
 
-                <!-- DEEP ROOM 004 -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-004"></iframe>
+                    <!-- DEEP ROOM 004 -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-004"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 004</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 004</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
-                    </div>
-                </div>
 
-                <!-- DEEP ROOM 005 - PROGRESSIVE HOUSE EDITION -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-005"></iframe>
+                    <!-- DEEP ROOM 003 -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-003"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 003</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Progressive House Edition</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 005</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
-                    </div>
-                </div>
 
-                <!-- DEEP ROOM 006 -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom006"></iframe>
+                    <!-- DEEP ROOM 002 -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deep-room-002"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 002</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 006</h3>
-                        <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
-                    </div>
-                </div>
 
-                <!-- DEEP ROOM 007 (SOUNDCLOUD & YOUTUBE) -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <div class="youtube-facade w-full h-full" data-youtube-id="ujaw5j3NEHE" data-youtube-title="DEEP ROOM 007"></div>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 007</h3>
-                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
-                       
-                    </div>
-                </div>
-
-                <!-- DEEP ROOM 008 (SOUNDCLOUD & YOUTUBE) -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <div class="youtube-facade w-full h-full" data-youtube-id="mJIR1DtmLHU" data-youtube-title="DEEP ROOM 008"></div>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Deep Room</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 008</h3>
-                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
-                        
-                    </div>
-                </div>
-
-                <!-- DEEP ROOM 009 - CENOTE EDITION / MEXICO (SOUNDCLOUD & YOUTUBE) -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <div class="youtube-facade w-full h-full" data-youtube-id="_O9yuLB6bTA" data-youtube-title="DEEP ROOM 009"></div>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-orange-400 font-bold uppercase tracking-wider">Cenote Edition · México</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 009</h3>
-                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
-
-                    </div>
-                </div>
-
-                <!-- DEEP ROOM 010 - HANGAR EDITION (SOUNDCLOUD & YOUTUBE) -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <div class="youtube-facade w-full h-full" data-youtube-id="Vx3jGAOqVSw" data-youtube-title="DEEP ROOM 010"></div>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Hangar Edition</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 010</h3>
-                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
-
-                    </div>
-                </div>
-
-                <!-- DEEP ROOM 011 - BOMBINHAS / BRAZIL (SOUNDCLOUD & YOUTUBE) -->
-                <div class="bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
-                    <div class="aspect-video w-full">
-                        <div class="youtube-facade w-full h-full" data-youtube-id="ZtdV2CQlUE8" data-youtube-title="DEEP ROOM 011"></div>
-                    </div>
-                    <div class="p-3 sm:p-5">
-                        <span class="text-xs text-neonMagenta font-bold uppercase tracking-wider">Bombinhas · Brazil</span>
-                        <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 011</h3>
-                        <p class="text-gray-400 text-xs mt-1 mb-2">Mixed By M I Y E N</p>
-
+                    <!-- DEEP ROOM 001 -->
+                    <div class="min-w-[260px] sm:min-w-[300px] flex-shrink-0 snap-start bg-glassBg rounded-2xl overflow-hidden border border-glassBorder shadow-lg">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michycream/deeproom-001"></iframe>
+                        </div>
+                        <div class="p-3 sm:p-5">
+                            <span class="text-xs text-neonViolet font-bold uppercase tracking-wider">Deep Room</span>
+                            <h3 class="text-white font-bold text-sm sm:text-lg mt-1">DEEP ROOM 001</h3>
+                            <p class="text-gray-400 text-xs mt-1">Mixed By M I Y E N</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -538,8 +540,8 @@
             
 
             <!-- OTROS SETS -->
-            <div class="text-center mb-12 mt-16">
-                <h2 class="font-display text-3xl font-extrabold tracking-tight text-white">OTROS SETS</h2>
+            <div id="othersets" class="text-center mb-12 mt-16">
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-white">OTHER SETS</h2>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
@@ -637,7 +639,7 @@
         <!-- ========================================================================= -->
         <!-- PARTE 6: SECCIÓN DE BOTONES DE REDES SOCIALES                             -->
         <!-- ========================================================================= -->
-        <section id="social" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5">
+        <section id="links" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 border-t border-white/5">
             <div class="text-center mb-10">
                 <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">ENLACES DIRECTOS & SOCIAL </h2>
                 <p class="text-gray-400 text-sm mt-2">Conectate para escuchar más sets y lanzamientos</p>
