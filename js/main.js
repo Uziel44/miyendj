@@ -89,6 +89,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
+    // REPRODUCTOR ÚNICO (cuando uno suena, los demás se pausan)
+    // Cada reproductor (YouTube o SoundCloud) se registra con { pausar() }.
+    // Si las APIs externas no cargan (ej. bloqueador de anuncios), la página
+    // sigue funcionando igual, solo que sin esta exclusividad.
+    // ==========================================================================
+    const reproductores = new Set();
+
+    const pausarOtros = (actual) => {
+        reproductores.forEach((reproductor) => {
+            if (reproductor !== actual) reproductor.pausar();
+        });
+    };
+
+    // La API de YouTube se descarga una sola vez, en el primer click en una miniatura
+    let promesaApiYouTube = null;
+    const cargarApiYouTube = () => {
+        if (!promesaApiYouTube) {
+            promesaApiYouTube = new Promise((resolve) => {
+                if (window.YT && window.YT.Player) {
+                    resolve(window.YT);
+                    return;
+                }
+                window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+                const script = document.createElement('script');
+                script.src = 'https://www.youtube.com/iframe_api';
+                script.onerror = () => resolve(null);
+                document.head.appendChild(script);
+            });
+        }
+        return promesaApiYouTube;
+    };
+
+    // SoundCloud: sus reproductores ya están en la página, así que se enlazan al cargar
+    const scriptSoundCloud = document.createElement('script');
+    scriptSoundCloud.src = 'https://w.soundcloud.com/player/api.js';
+    scriptSoundCloud.onload = () => {
+        document.querySelectorAll('iframe[src*="w.soundcloud.com"]').forEach((iframe) => {
+            const widget = window.SC.Widget(iframe);
+            const reproductor = { pausar: () => widget.pause() };
+            reproductores.add(reproductor);
+            widget.bind(window.SC.Widget.Events.PLAY, () => pausarOtros(reproductor));
+        });
+    };
+    document.head.appendChild(scriptSoundCloud);
+
+    // ==========================================================================
     // FACADE DE VIDEOS DE YOUTUBE (miniatura instantánea, iframe solo al hacer click)
     // ==========================================================================
     document.querySelectorAll('.youtube-facade').forEach((facade) => {
@@ -104,14 +150,35 @@ document.addEventListener('DOMContentLoaded', () => {
         facade.appendChild(boton);
 
         facade.addEventListener('click', () => {
+            // El video nuevo arranca solo (autoplay): se pausan los demás ya, sin esperar a la API
+            pausarOtros(null);
+
             const iframe = document.createElement('iframe');
             iframe.className = 'w-full h-full';
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
             iframe.title = videoTitle;
             iframe.frameBorder = '0';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
             facade.replaceWith(iframe);
+
+            cargarApiYouTube().then((YT) => {
+                if (!YT) return;
+                const reproductor = {
+                    // pauseVideo recién existe cuando el reproductor terminó de cargar
+                    pausar: () => {
+                        if (typeof player.pauseVideo === 'function') player.pauseVideo();
+                    }
+                };
+                const player = new YT.Player(iframe, {
+                    events: {
+                        onStateChange: (evento) => {
+                            if (evento.data === YT.PlayerState.PLAYING) pausarOtros(reproductor);
+                        }
+                    }
+                });
+                reproductores.add(reproductor);
+            });
         }, { once: true });
     });
 
