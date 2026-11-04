@@ -137,6 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
             boton.children[0].classList.toggle('hidden', abierto);
             boton.children[1].classList.toggle('hidden', !abierto);
         });
+
+        // El botón solo aparece si el texto realmente queda recortado (los textos cortos no lo necesitan).
+        // Se revisa al cargar, al cambiar el ancho y cuando i18n.js cambia el idioma (cambia el contenido del texto).
+        const texto = boton.parentElement.querySelector('.series-text');
+        if (!texto) return;
+        const revisar = () => {
+            if (texto.classList.contains('is-open') || texto.classList.contains('hidden')) return;
+            boton.hidden = !(texto.scrollHeight > texto.clientHeight + 1);
+        };
+        revisar();
+        window.addEventListener('resize', revisar);
+        window.addEventListener('load', revisar);
+        new MutationObserver(revisar).observe(texto, { childList: true, characterData: true, subtree: true });
     });
 
     // ==========================================================================
