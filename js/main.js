@@ -115,41 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     document.querySelectorAll('.series-title').forEach((title) => {
         title.addEventListener('click', () => {
-            const bloque = title.parentElement;
-            const textElement = bloque.querySelector('.series-text');
-            if (textElement) {
-                const ocultar = !textElement.classList.contains('hidden');
-                textElement.classList.toggle('hidden', ocultar);
-                const mas = bloque.querySelector('.series-more');
-                if (mas) mas.classList.toggle('hidden', ocultar);
-            }
+            const textElement = title.parentElement.querySelector('.series-text');
+            if (textElement) textElement.classList.toggle('hidden');
         });
     });
 
-    // En móvil el texto de cada serie se ve recortado (CSS .series-text) y "Conocer más" lo abre / lo cierra.
-    // Los dos <span> del botón llevan data-i18n (series.more / series.less) y se alternan con la clase "hidden".
+    // En móvil cada texto de serie muestra solo su primera oración (CSS: .series-rest oculto) seguida de
+    // "Conocer más", que despliega el resto; "Ver menos" lo vuelve a plegar. Los dos <span> del botón llevan
+    // data-i18n (series.more / series.less) y se alternan con la clase "hidden"; en escritorio el botón no se ve.
     document.querySelectorAll('.series-more').forEach((boton) => {
         boton.addEventListener('click', () => {
-            const texto = boton.parentElement.querySelector('.series-text');
-            if (!texto) return;
+            const texto = boton.closest('.series-text');
             const abierto = texto.classList.toggle('is-open');
             boton.setAttribute('aria-expanded', String(abierto));
             boton.children[0].classList.toggle('hidden', abierto);
             boton.children[1].classList.toggle('hidden', !abierto);
         });
-
-        // El botón solo aparece si el texto realmente queda recortado (los textos cortos no lo necesitan).
-        // Se revisa al cargar, al cambiar el ancho y cuando i18n.js cambia el idioma (cambia el contenido del texto).
-        const texto = boton.parentElement.querySelector('.series-text');
-        if (!texto) return;
-        const revisar = () => {
-            if (texto.classList.contains('is-open') || texto.classList.contains('hidden')) return;
-            boton.hidden = !(texto.scrollHeight > texto.clientHeight + 1);
-        };
-        revisar();
-        window.addEventListener('resize', revisar);
-        window.addEventListener('load', revisar);
-        new MutationObserver(revisar).observe(texto, { childList: true, characterData: true, subtree: true });
     });
 
     // ==========================================================================

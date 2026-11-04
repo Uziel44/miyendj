@@ -451,16 +451,9 @@
     background-size: cover;
 }
 
-/* Textos largos de cada serie: en móvil se ven recortados y "Conocer más" (js/main.js) los abre */
+/* Textos de cada serie: en móvil se ve solo la primera oración y "Conocer más" (js/main.js) muestra el resto */
 @media (max-width: 767px) {
-    .series-text:not(.is-open) {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
-        overflow: hidden;
+    .series-text:not(.is-open) .series-rest {
+        display: none;
     }
-}
-.series-text.hidden {
-    display: none;
 }
