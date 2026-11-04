@@ -75,6 +75,17 @@
       "rider.titulo": "TECHNICAL RIDER, CACHÉT &amp; HOSPITALITY",
       "rider.alt": "Technical rider: 2 Pioneer DJ CDJ-3000X and Pioneer DJ DJM-V10 mixer",
 
+      "rider.spec.titulo": "TECHNICAL RIDER",
+      "rider.spec.sub": "DJ Equipment · Monitoring · Booth Requirements",
+      "rider.spec.setup.t": "Preferred Setup",
+      "rider.spec.alt.t": "Compatible Alternatives",
+      "rider.spec.alt.p": "Pioneer CDJ-2000NXS2, XDJ-XZ, XDJ-RX3, XDJ-RR, DJM-900NXS/NXS2, DJM-750MK2, DJM-250MK2, Denon SC6000M, Prime 4+ and SC Live 4.",
+      "rider.spec.alt.note": "Other configurations may be considered subject to prior approval and technical compatibility.",
+      "rider.spec.mon.t": "Monitoring",
+      "rider.spec.mon.p": "Professional booth monitors with sufficient headroom, clear sound reproduction and independent level control. Monitoring specifications should be confirmed with the technical team in advance.",
+      "rider.spec.conf.t": "Technical Confirmation",
+      "rider.spec.conf.p": "The promoter or venue is requested to confirm the available equipment and setup with the artist before the event.",
+
       // Texto del cliente, tal cual lo entregó (no cambiar sin avisarle)
       "cachet.titulo": "CACHÉT &amp; HOSPITALITY",
       "cachet.sub": "Booking Conditions · Technical &amp; Hospitality Rider",
@@ -136,6 +147,17 @@
 
       "rider.titulo": "RIDER TÉCNICO, CACHÊ &amp; HOSPITALITY",
       "rider.alt": "Rider técnico: 2 Pioneer DJ CDJ-3000X e mixer Pioneer DJ DJM-V10",
+
+      "rider.spec.titulo": "RIDER TÉCNICO",
+      "rider.spec.sub": "Equipamento DJ · Monitoramento · Requisitos de cabine",
+      "rider.spec.setup.t": "Setup preferido",
+      "rider.spec.alt.t": "Alternativas compatíveis",
+      "rider.spec.alt.p": "Pioneer CDJ-2000NXS2, XDJ-XZ, XDJ-RX3, XDJ-RR, DJM-900NXS/NXS2, DJM-750MK2, DJM-250MK2, Denon SC6000M, Prime 4+ e SC Live 4.",
+      "rider.spec.alt.note": "Outras configurações poderão ser consideradas, sujeitas a aprovação prévia e compatibilidade técnica.",
+      "rider.spec.mon.t": "Monitoramento",
+      "rider.spec.mon.p": "Monitores de cabine profissionais, com headroom suficiente, reprodução de som clara e controle de nível independente. As especificações de monitoramento devem ser confirmadas com a equipe técnica com antecedência.",
+      "rider.spec.conf.t": "Confirmação técnica",
+      "rider.spec.conf.p": "Solicita-se ao promotor ou à casa que confirme com o artista o equipamento disponível e a configuração antes do evento.",
 
       // Tradução ao português do texto do cliente: pendente de revisão por ele
       "cachet.titulo": "CACHÊ E HOSPITALITY",
