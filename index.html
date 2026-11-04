@@ -45,15 +45,22 @@
 
             </nav>
 
-            <!-- SELECTOR DE IDIOMA (como en Ilha Grande): js/i18n.js marca el activo con aria-pressed -->
-            <div class="lang ml-auto lg:ml-4 xl:ml-6 mr-2.5 lg:mr-0 shrink-0" role="group" aria-label="Idioma" data-i18n-attr="aria-label:aria.idioma">
-                <button class="lang__btn" type="button" lang="es" data-lang="es" aria-label="Español" aria-pressed="true">ES</button>
-                <button class="lang__btn" type="button" lang="en" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
-                <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
+            <!-- SELECTOR DE IDIOMA (escritorio): escondido en el menú, se despliega al tocarlo. js/i18n.js marca el activo con aria-pressed -->
+            <div class="relative hidden lg:block lg:ml-4 xl:ml-6 shrink-0">
+                <button id="lang-toggle" type="button" class="flex items-center gap-2 text-[12px] xl:text-[13px] font-medium tracking-[0.2em] uppercase text-gray-300 transition hover:text-white" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma" data-i18n-attr="aria-label:aria.idioma">
+                    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                    <span data-lang-actual>ES</span>
+                    <i class="fa-solid fa-chevron-down text-[9px]" aria-hidden="true"></i>
+                </button>
+                <div id="lang-menu" class="lang hidden absolute right-0 top-full mt-3 rounded-xl border border-white/10 bg-black/90 p-2" role="group" aria-label="Idioma" data-i18n-attr="aria-label:aria.idioma">
+                    <button class="lang__btn" type="button" lang="es" data-lang="es" aria-label="Español" aria-pressed="true">ES</button>
+                    <button class="lang__btn" type="button" lang="en" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+                    <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
+                </div>
             </div>
 
             <!-- ICONO DE MENÚ MÓVIL (Tres líneas para teléfonos) -->
-            <button id="menu-button" class="grid h-11 w-11 place-items-center rounded-full border border-white/10 lg:hidden transition hover:bg-white/5" aria-label="Abrir menú" data-i18n-attr="aria-label:aria.menu" aria-expanded="false">
+            <button id="menu-button" class="ml-auto grid h-11 w-11 place-items-center rounded-full border border-white/10 lg:hidden transition hover:bg-white/5" aria-label="Abrir menú" data-i18n-attr="aria-label:aria.menu" aria-expanded="false">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -69,6 +76,12 @@
             <a class="block py-2 transition hover:text-white" href="#othersets">OTHER SETS</a>
             <a class="block py-2 transition hover:text-white" href="#rider" data-i18n="nav.rider">RIDER TECNICO</a>
             <a class="block py-2 transition hover:text-white" href="#links">SOCIAL LINKS</a>
+            <!-- Selector de idioma (móvil): escondido dentro del menú -->
+            <div class="lang justify-center pt-3 mt-1 border-t border-white/10" role="group" aria-label="Idioma" data-i18n-attr="aria-label:aria.idioma">
+                <button class="lang__btn" type="button" lang="es" data-lang="es" aria-label="Español" aria-pressed="true">ES</button>
+                <button class="lang__btn" type="button" lang="en" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+                <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
+            </div>
         </nav>
     </header>
 

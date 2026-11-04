@@ -220,6 +220,8 @@
     $$("[data-lang]").forEach(function (btn) {
       btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
     });
+    // el selector desplegable de la barra muestra el idioma activo (ES / EN / PT)
+    $$("[data-lang-actual]").forEach(function (el) { el.textContent = lang.toUpperCase(); });
     bioImage();
   };
 

@@ -223,6 +223,7 @@
     font-weight: 700;
     letter-spacing: 0.04em;
     padding: 6px 9px;
+    min-height: 2.25rem; /* 36 px: cómodo para tocar con el dedo */
     cursor: pointer;
 }
 

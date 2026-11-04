@@ -82,6 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Selector de idioma de escritorio: escondido en el menú, se abre al tocarlo y se cierra al elegir, al hacer clic fuera o con Esc
+    const botonIdioma = document.getElementById('lang-toggle');
+    const menuIdioma = document.getElementById('lang-menu');
+    if (botonIdioma && menuIdioma) {
+        const cerrarIdioma = () => {
+            menuIdioma.classList.add('hidden');
+            botonIdioma.setAttribute('aria-expanded', 'false');
+        };
+        botonIdioma.addEventListener('click', (evento) => {
+            evento.stopPropagation();
+            const abierto = !menuIdioma.classList.toggle('hidden');
+            botonIdioma.setAttribute('aria-expanded', String(abierto));
+        });
+        menuIdioma.querySelectorAll('[data-lang]').forEach((boton) => boton.addEventListener('click', cerrarIdioma));
+        document.addEventListener('click', (evento) => {
+            if (!menuIdioma.contains(evento.target)) cerrarIdioma();
+        });
+        document.addEventListener('keydown', (evento) => {
+            if (evento.key === 'Escape') cerrarIdioma();
+        });
+    }
+
     if (cabecera) {
         const actualizarCabecera = () => cabecera.classList.toggle('is-scrolled', window.scrollY > 24);
         window.addEventListener('scroll', actualizarCabecera, { passive: true });
