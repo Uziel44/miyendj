@@ -800,9 +800,9 @@
     </main>
 
     <!-- TARIFARIO REGIONAL: popup (dialog nativo; se cierra con Esc, con la X o tocando afuera). Textos del cliente en español; EN/PT en js/i18n.js -->
-    <dialog id="rates-dialog" class="rates-dialog" aria-labelledby="rates-title" onclick="if(event.target===this)this.close()">
-        <div class="rates-dialog__box">
-            <button type="button" class="rates-dialog__close" onclick="document.getElementById('rates-dialog').close()" aria-label="Cerrar" data-i18n-attr="aria-label:rates.close">&times;</button>
+    <dialog id="rates-dialog" class="m-auto p-0 w-[92vw] max-w-4xl max-h-[88vh] overflow-auto rounded-2xl border border-glassBorder bg-clubBlack text-white shadow-2xl backdrop:bg-black/80" aria-labelledby="rates-title" onclick="if(event.target===this)this.close()">
+        <div class="relative p-6 md:p-8">
+            <button type="button" class="absolute top-3 right-4 text-3xl leading-none text-gray-400 transition hover:text-white" onclick="document.getElementById('rates-dialog').close()" aria-label="Cerrar" data-i18n-attr="aria-label:rates.close">&times;</button>
             <h3 id="rates-title" class="font-display text-xl md:text-2xl font-bold tracking-tight mb-6 pr-8" data-i18n="rates.title">Tarifario de referencia para sets de hasta 180 minutos</h3>
 
             <div class="overflow-x-auto">

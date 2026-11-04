@@ -450,28 +450,3 @@
 .video-card .soundcloud-facade {
     background-size: cover;
 }
-
-/* Popup del tarifario regional (<dialog> nativo) */
-.rates-dialog {
-    margin: auto;
-    padding: 0;
-    width: min(92vw, 52rem);
-    max-height: 88vh;
-    overflow: auto;
-    color: #fff;
-    background: #0b0b10;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 1rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-}
-.rates-dialog::backdrop { background: rgba(0, 0, 0, 0.78); }
-.rates-dialog__box { position: relative; padding: 1.75rem; }
-.rates-dialog__close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 1.75rem;
-    line-height: 1;
-    color: #9ca3af;
-}
-.rates-dialog__close:hover { color: #fff; }
