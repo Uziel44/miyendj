@@ -133,18 +133,55 @@ document.addEventListener('DOMContentLoaded', () => {
         return promesaApiYouTube;
     };
 
-    // SoundCloud: sus reproductores ya están en la página, así que se enlazan al cargar
-    const scriptSoundCloud = document.createElement('script');
-    scriptSoundCloud.src = 'https://w.soundcloud.com/player/api.js';
-    scriptSoundCloud.onload = () => {
-        document.querySelectorAll('iframe[src*="w.soundcloud.com"]').forEach((iframe) => {
-            const widget = window.SC.Widget(iframe);
-            const reproductor = { pausar: () => widget.pause() };
-            reproductores.add(reproductor);
-            widget.bind(window.SC.Widget.Events.PLAY, () => pausarOtros(reproductor));
-        });
-    };
-    document.head.appendChild(scriptSoundCloud);
+    // SoundCloud: la API se descarga al cargar la página; el reproductor de cada tarjeta se crea al tocar play
+    const promesaApiSoundCloud = new Promise((resolve) => {
+        const scriptSoundCloud = document.createElement('script');
+        scriptSoundCloud.src = 'https://w.soundcloud.com/player/api.js';
+        scriptSoundCloud.onload = () => resolve(window.SC || null);
+        scriptSoundCloud.onerror = () => resolve(null);
+        document.head.appendChild(scriptSoundCloud);
+    });
+
+    // ==========================================================================
+    // TARJETAS DE SOUNDCLOUD (portada instantánea, reproductor solo al hacer click)
+    // Cargar 10 reproductores de SoundCloud al abrir la página era pesado y a veces quedaban en blanco.
+    // ==========================================================================
+    document.querySelectorAll('.soundcloud-facade').forEach((facade) => {
+        const urlPista = facade.dataset.soundcloudUrl;
+        const tituloPista = facade.dataset.soundcloudTitle || 'Set de SoundCloud';
+        if (!urlPista) return;
+
+        const boton = document.createElement('div');
+        boton.className = 'youtube-facade-play';
+        boton.innerHTML = '<i class="fa-solid fa-play"></i>';
+        facade.appendChild(boton);
+
+        facade.addEventListener('click', () => {
+            // El set nuevo arranca solo (auto_play): se pausan los demás ya
+            pausarOtros(null);
+
+            const iframe = document.createElement('iframe');
+            iframe.className = 'w-full h-full';
+            iframe.src = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(urlPista)
+                + '&auto_play=true&visual=true&hide_related=true&show_comments=false&show_teaser=false';
+            iframe.title = tituloPista;
+            iframe.setAttribute('scrolling', 'no');
+            iframe.frameBorder = '0';
+            iframe.allow = 'autoplay';
+
+            const tarjeta = facade.closest('.video-card');
+            if (tarjeta) tarjeta.classList.add('is-playing');
+            facade.replaceWith(iframe);
+
+            promesaApiSoundCloud.then((SC) => {
+                if (!SC) return;
+                const widget = SC.Widget(iframe);
+                const reproductor = { pausar: () => widget.pause() };
+                reproductores.add(reproductor);
+                widget.bind(SC.Widget.Events.PLAY, () => pausarOtros(reproductor));
+            });
+        }, { once: true });
+    });
 
     // ==========================================================================
     // FACADE DE VIDEOS DE YOUTUBE (miniatura instantánea, iframe solo al hacer click)

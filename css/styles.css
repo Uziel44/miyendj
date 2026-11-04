@@ -444,3 +444,8 @@
 .video-card .youtube-facade .youtube-facade-play i {
     margin-left: 4px; /* centra visualmente el triángulo */
 }
+
+/* tarjetas de SoundCloud: la portada es cuadrada, se muestra completa (las de YouTube recortan las barras negras) */
+.video-card .soundcloud-facade {
+    background-size: cover;
+}
