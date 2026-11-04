@@ -115,10 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     document.querySelectorAll('.series-title').forEach((title) => {
         title.addEventListener('click', () => {
-            const textElement = title.closest('.text-center').querySelector('.series-text');
+            const bloque = title.parentElement;
+            const textElement = bloque.querySelector('.series-text');
             if (textElement) {
-                textElement.classList.toggle('hidden');
+                const ocultar = !textElement.classList.contains('hidden');
+                textElement.classList.toggle('hidden', ocultar);
+                const mas = bloque.querySelector('.series-more');
+                if (mas) mas.classList.toggle('hidden', ocultar);
             }
+        });
+    });
+
+    // En móvil el texto de cada serie se ve recortado (CSS .series-text) y "Conocer más" lo abre / lo cierra.
+    // Los dos <span> del botón llevan data-i18n (series.more / series.less) y se alternan con la clase "hidden".
+    document.querySelectorAll('.series-more').forEach((boton) => {
+        boton.addEventListener('click', () => {
+            const texto = boton.parentElement.querySelector('.series-text');
+            if (!texto) return;
+            const abierto = texto.classList.toggle('is-open');
+            boton.setAttribute('aria-expanded', String(abierto));
+            boton.children[0].classList.toggle('hidden', abierto);
+            boton.children[1].classList.toggle('hidden', !abierto);
         });
     });
 

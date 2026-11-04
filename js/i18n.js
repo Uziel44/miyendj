@@ -56,6 +56,8 @@
       "alt.publico": "Electronic music crowd",
       "alt.foto": "Photo of Miyen DJ",
 
+      "series.more": "Read more",
+      "series.less": "Show less",
       "series.music": "Over the years, with the breadth of my sound and my musical tastes, rooted in rock, funk, reggae & blues, I have developed a wide and also critical ear, which I have instilled in my sessions. Learning not to be pigeonholed into a single genre is what defines me. I am a great lover of this whole wonderful tree called ELECTRONIC MUSIC, from chill out with very low BPM, soft percussion and predominantly ambient sounds, to the most violent, hybrid and dark psytrance. I unfold across that whole range, and I respect all genres. My music library —within Apple Music, Rekordbox or Engine DJ— is open to every kind of event within the range of electronic DJing. Of course, some genres I like more, others less, but I always listen to them and decide based on that. Every genre leaves us a lesson and is applicable in a given moment or context. I am going to guide you through my music and my musical preferences, called \"MY SERIES\".",
       "latest.titulo": "LATEST SET",
       "latest.etiqueta": "Latest Set",
@@ -171,6 +173,8 @@
       "alt.publico": "Público de música eletrônica",
       "alt.foto": "Foto de Miyen DJ",
 
+      "series.more": "Conhecer mais",
+      "series.less": "Ver menos",
       "series.music": "Ao longo dos anos, e com a ampla particularidade do meu som e dos meus gostos musicais, originários do rock, funk, reggae & blues, desenvolvi um ouvido amplo, e também crítico, e isso eu incorporei às minhas sessions. Aprender a não me limitar a um único gênero é o que me caracteriza; sou um grande apaixonado por toda essa maravilhosa árvore chamada MÚSICA ELETRÔNICA, desde o chill out com BPM bem baixo, percussões suaves e sons ambientes predominantes, até o psytrance mais violento, híbrido e sombrio. Dentro de toda essa gama eu me desenvolvo, e respeito todos os gêneros. Minha biblioteca musical —dentro do Apple Music, Rekordbox ou Engine DJ— está aberta a todo tipo de evento dentro da gama do DJing eletrônico; claro, alguns gêneros me agradam mais, outros menos, mas sempre os escuto e, com base nisso, decido. Cada gênero nos deixa um aprendizado e é aplicável em um momento ou contexto determinado. Vou guiá-los dentro da minha música e das minhas preferências musicais, chamadas \"MINHAS SÉRIES\".",
       "latest.titulo": "SET MAIS RECENTE",
       "latest.etiqueta": "Último Set",
