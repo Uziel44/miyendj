@@ -5,11 +5,11 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                clubBlack: '#050508', // Negro profundo de boliche / club
-                neonViolet: '#8B5CF6', // Violeta brillante neón para resaltar
-                neonMagenta: '#D946EF', // Magenta brillante para acentos enérgicos
-                glassBg: 'rgba(15, 15, 25, 0.7)', // Fondo traslúcido para tarjetas de vidrio (glassmorphism)
-                glassBorder: 'rgba(255, 255, 255, 0.08)' // Borde fino sutil para el vidrio
+                clubBlack: '#000000', // Negro del hero: fondo de toda la web, header y footer
+                neonBlue: '#3B82F6', // Azul brillante para resaltar
+                neonSky: '#0EA5E9', // Celeste brillante para acentos enérgicos
+                glassBg: 'rgba(40, 44, 50, 0.72)', // Gris medio traslúcido para tarjetas de vidrio (glassmorphism)
+                glassBorder: 'rgba(255, 255, 255, 0.12)' // Borde gris claro sutil para el vidrio
             },
             fontFamily: {
                 sans: ['Manrope', 'sans-serif'],
@@ -20,38 +20,39 @@ tailwind.config = {
 };
 
 // ==========================================================================
-// ZOOM DE IMAGEN BIO (con cambio a BIO ENGLISH.png)
+// ZOOM DE IMAGEN BIO (ampliar / restaurar)
+// La imagen en sí (BIO ESPANOL / BIO ENGLISH / BIO PORTUGUES) la elige js/i18n.js según el idioma.
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const imagen = document.getElementById('mi-imagen');
-    const botonBioEnglish = document.getElementById('boton-bio-english');
+    const botonAmpliar = document.getElementById('boton-bio-english');
 
-    if (imagen && botonBioEnglish) {
-        const imagenOriginal = imagen.src;
+    if (imagen && botonAmpliar) {
+        // i18n.js se carga después de este archivo, así que se consulta recién al momento de usarlo
+        const texto = (clave, respaldo) => (window.I18N ? window.I18N.t(clave) : respaldo);
+        const etiqueta = () => (imagen.classList.contains('zoom')
+            ? texto('bio.cerrarAria', 'Restaurar imagen')
+            : texto('bio.ampliarAria', 'Ampliar imagen'));
 
-        const alternarZoom = () => {
-            imagen.classList.toggle('zoom');
-            if (imagen.classList.contains('zoom')) {
-                imagen.src = 'BIO ENGLISH.png';
-                imagen.setAttribute('aria-label', 'Restaurar imagen');
-            } else {
-                imagen.src = imagenOriginal;
-                imagen.setAttribute('aria-label', 'Ampliar imagen');
-            }
+        const ampliar = (activar) => {
+            imagen.classList.toggle('zoom', activar);
+            imagen.setAttribute('aria-label', etiqueta());
         };
 
-        botonBioEnglish.addEventListener('click', alternarZoom);
+        botonAmpliar.addEventListener('click', () => ampliar(!imagen.classList.contains('zoom')));
         imagen.addEventListener('click', () => {
             if (imagen.classList.contains('zoom')) {
-                alternarZoom();
+                ampliar(false);
             }
         });
         document.addEventListener('keydown', (evento) => {
             if (evento.key === 'Escape' && imagen.classList.contains('zoom')) {
-                imagen.classList.remove('zoom');
-                imagen.src = imagenOriginal;
-                imagen.setAttribute('aria-label', 'Ampliar imagen');
+                ampliar(false);
             }
+        });
+        // Si cambia el idioma con la imagen ya tocada, la etiqueta accesible sigue el idioma
+        document.addEventListener('i18n:change', () => {
+            if (imagen.hasAttribute('aria-label')) imagen.setAttribute('aria-label', etiqueta());
         });
     }
 
@@ -61,10 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    // El header es transparente sobre el hero; con el menú abierto o al bajar toma fondo para que se lea
+    const cabecera = document.querySelector('.site-header');
+
     if (menuButton && mobileMenu) {
         menuButton.addEventListener('click', () => {
             const isOpen = !mobileMenu.classList.toggle('hidden');
             menuButton.setAttribute('aria-expanded', String(isOpen));
+            if (cabecera) cabecera.classList.toggle('menu-abierto', isOpen);
         });
 
         // Cerrar menú móvil al hacer clic en cualquier enlace
@@ -72,8 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 menuButton.setAttribute('aria-expanded', 'false');
+                if (cabecera) cabecera.classList.remove('menu-abierto');
             });
         });
+    }
+
+    if (cabecera) {
+        const actualizarCabecera = () => cabecera.classList.toggle('is-scrolled', window.scrollY > 24);
+        window.addEventListener('scroll', actualizarCabecera, { passive: true });
+        actualizarCabecera();
     }
 
     // ==========================================================================
@@ -144,6 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         facade.style.backgroundImage = `url('https://img.youtube.com/vi/${videoId}/hqdefault.jpg')`;
 
+        // Versión HD sin barras negras, si el video la tiene (si no existe YouTube devuelve una imagen de 120 px: se descarta)
+        const miniaturaHd = new Image();
+        miniaturaHd.onload = () => {
+            if (miniaturaHd.naturalWidth > 200) {
+                facade.style.backgroundImage = `url('${miniaturaHd.src}')`;
+                facade.style.backgroundSize = 'cover';
+            }
+        };
+        miniaturaHd.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
         const boton = document.createElement('div');
         boton.className = 'youtube-facade-play';
         boton.innerHTML = '<i class="fa-solid fa-play"></i>';
@@ -160,6 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
             iframe.frameBorder = '0';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
+            // La barra de título y la insignia de la tarjeta se ocultan: taparían los controles del reproductor
+            const tarjeta = facade.closest('.video-card');
+            if (tarjeta) tarjeta.classList.add('is-playing');
             facade.replaceWith(iframe);
 
             cargarApiYouTube().then((YT) => {
@@ -208,8 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const rutasDuplicadas = [...rutas, ...rutas];
         rutasDuplicadas.forEach((ruta) => {
             const img = document.createElement('img');
-            img.src = ruta;
+            // Se codifica cada tramo: un nombre con "#" o "?" se leería como fragmento/consulta de la URL
+            img.src = ruta.split('/').map(encodeURIComponent).join('/');
             img.alt = 'Foto de Miyen DJ';
+            img.dataset.i18nAttr = 'alt:alt.foto'; // js/i18n.js traduce el alt
             img.loading = 'lazy';
             contenedor.appendChild(img);
         });
@@ -238,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'flayers/Sabado.PNG', 'flayers/ROLLERCOASTER LOGO - 21.PNG', 'flayers/CARATULA DEEP ROOM SERIES - 17.PNG',
         'flayers/ROLLERCOASTER 003 (Historia de Instagram) - 1.PNG', 'flayers/IMG_3584.JPG',
         'flayers/IMG_2611.png', 'flayers/1c363a6f-ff06-4d48-b792-7b784a01d86f.jpeg',
-        'flayers/FLYERS  diseños.JPG', 'flayers/Flyer Vagalume (Flyer (A4)) - 2.png',
+        'flayers/FLYERS disenos.JPG', 'flayers/Flyer Vagalume (Flyer (A4)) - 2.png',
         'flayers/35500e08-e021-4b01-97a6-5b9c582c41fa.JPG', 'flayers/Flyer Vagalume (Flyer (A4)) - 1.png',
         'flayers/905368a0-264d-4e4d-9334-25a3b74280cf__link-in-bio__image-block__home__5853578e-7ac3-4e03-a5d4-517d0434a81b__d189fb40-a136-466f-ad42-0ebfdbbf0c64.jpg',
         'flayers/IMG_6637.JPG', 'flayers/IMG_1109.png', 'flayers/CARATULA DEEP ROOM SERIES - 60.PNG',
