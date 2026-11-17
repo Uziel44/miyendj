@@ -457,3 +457,37 @@
         display: none;
     }
 }
+
+/* Video de fondo de la sección MUSIC (index.html, #bio y #music): ocupa todo el ancho y queda fijo mientras se hace scroll por la sección */
+#music, #bio { position: relative; }
+#music > *:not(.music-bg), #bio > *:not(.music-bg) { position: relative; z-index: 1; }
+main { overflow-x: clip; }
+.music-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    z-index: 0;
+    pointer-events: none;
+}
+.music-bg__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+.music-bg__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.music-bg__velo {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7); /* bajá el 0.7 para ver más el video */
+}
+@media (prefers-reduced-motion: reduce) {
+    .music-bg { display: none; }
+}
