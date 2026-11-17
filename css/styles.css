@@ -491,3 +491,13 @@ main { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
     .music-bg { display: none; }
 }
+
+/* MUSIC y SET MÁS RECIENTE: tapan el video con negro a todo el ancho (el video vuelve a verse desde DEEP ROOM) */
+.music-intro {
+    display: flow-root;
+    margin-top: -4rem;   /* anula el padding superior (py-16) de #music para que el negro llegue al borde */
+    padding-top: 4rem;
+    background: #000;
+    box-shadow: 0 0 0 100vmax #000;
+    clip-path: inset(0 -100vmax);
+}
