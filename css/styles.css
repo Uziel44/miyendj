@@ -477,6 +477,7 @@ main { overflow-x: clip; }
     top: 0;
     height: 100vh;
     overflow: hidden;
+    background: #000; /* negro mientras el video carga */
 }
 .music-bg__video {
     width: 100%;
